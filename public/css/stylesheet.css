@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #7071E8;
+    --secondary-color: #C683D7;
+    --tertiary-color: #ED9ED6;
+    --accent-color: #FFC7C7;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#index {
+    color: var(--primary-color);
+    background-color: black;
+    background-image: url("/images/maddy background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+#about {
+    color: var(--primary-color);
+    background-color: #E8C6FF; /* pastel purple color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    float: left;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: transparent;
+}
+
+header {
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+#main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: var(--tertiary-color);
+    padding: 20px;
+    border-radius: 25px;
+}
+
+#text {
+    flex: 0 0 100%; /* Take up full width */
+    margin-bottom: 20px; /* Add space between sections */
+}
+
+#header-content {
+    text-align: center;
+    flex: 0 0 100%; /* Take up full width */
+}
+
+#welcome {
+    font-size: 16px;
+    text-align: justify;
+    color: var(--primary-color);
+    margin-bottom: 20px; /* Add space between sections */
+}
+
+#image-gallery {
+    flex: 0 0 100%; /* Take up full width */
+    margin-top: 20px; /* Adjust as needed */
+}
+
+#rotating-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#rotating-gallery img {
+    width: calc(50% - 10px); /* Adjust as needed */
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+@media only screen and (max-width: 600px) {
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    #content-container {
+        flex-direction: column;
+    }
+
+    #text {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+main section {
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+main section h2 {
+    color: var(--secondary-color);
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+main section p {
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+footer {
+    text-align: center;
+    color: var(--primary-color);
+    background-color: var(--accent-color);
+    padding: 20px; /* Adjust as needed */
+    margin-top: 20px; /* Adjust as needed */
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box {
+    flex: 0 0 calc(50% - 10px); /* Adjust as needed */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.box h2 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.box p {
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+#image-gallery {
+    flex: 0 0 calc(50% - 10px); /* Adjust as needed */
+    margin-top: 20px; /* Adjust as needed */
+    display: flex; /* Display the image gallery */
+    justify-content: space-between; /* Adjust as needed */
+}
+
+#rotating-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#rotating-gallery img {
+    width: 100%; /* Adjust as needed */
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+/* Updated CSS for Pricing Page */
+#gallerycontainer {
+    float: right;
+    clear: both; /* Add this line to clear any previous floats */
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust as needed */
+}
+
+.price-box {
+    flex: 0 0 calc(45% - 20px); /* Adjust as needed */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+}
+
+.price-box h2 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.price-box p {
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+footer {
+    text-align: center;
+    color: var(--primary-color);
+    background-color: var(--accent-color);
+    padding: 20px; /* Adjust as needed */
+    margin-top: auto; /* Updated to "auto" to push the footer to the bottom */
+}
