@@ -1,19 +1,22 @@
-const fs = require('fs');
 const http = require('http');
-const port = 1337;
+const fs = require('fs');
 const path = require('path');
 
-function serveStaticFile(filePath, res, contentType, statusCode = 200) {
-    fs.readFile(filePath, (err, data) => {
-        if (err) {
-            console.error(`Error reading file ${filePath}:`, err);
-            statusCode = 500;
-            contentType = 'text/plain';
-            data = 'Internal Server Error';
-        }
+const port = 1337;
+const publicPath = 'C:\\Users\\guill\\Documents\\web_projects372\\myNodeWebsite\\public';
 
-        res.writeHead(statusCode, { 'Content-Type': contentType });
-        res.end(data);
+function serveStaticFile(res, filePath, contentType, responseCode = 200) {
+    const file = path.join(publicPath, filePath);
+
+    fs.readFile(file, (err, data) => {
+        if (err) {
+            console.error(`Error reading file ${file}:`, err);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Internal Server Error');
+        } else {
+            res.writeHead(responseCode, { 'Content-Type': contentType });
+            res.end(data);
+        }
     });
 }
 
@@ -23,55 +26,55 @@ const server = http.createServer((req, res) => {
 
     switch (url) {
         case '/index':
-            serveStaticFile(path.join(__dirname, 'public', 'index.html'), res, 'text/html');
+            serveStaticFile(res, '/index.html', 'text/html');
             break;
         case '/about':
-            serveStaticFile(path.join(__dirname, 'public', 'about.html'), res, 'text/html');
+            serveStaticFile(res, '/about.html', 'text/html');
             break;
         case '/gallery':
-            serveStaticFile(path.join(__dirname, 'public', 'gallery.html'), res, 'text/html');
+            serveStaticFile(res, '/gallery.html', 'text/html');
             break;
         case '/pricing':
-            serveStaticFile(path.join(__dirname, 'public', 'pricing.html'), res, 'text/html');
+            serveStaticFile(res, '/pricing.html', 'text/html');
             break;    
-        case '/styles.css':
-            serveStaticFile(path.join(__dirname, 'public', 'css', 'stylesheet.css'), res, 'text/css');
+        case '/stylesheet.css':
+            serveStaticFile(res, '/css/stylesheet.css', 'text/css');
             break;
-        case '/logo.webp':
-            serveStaticFile(path.join(__dirname, 'public', 'images', 'image1.webp'), res, 'image/webp');
+        case '/image1.webp':
+            serveStaticFile(res, '/images/image1.webp', 'image/webp');
             break;
         case '/image2.jpg':
-            serveStaticFile(path.join(__dirname, 'public', 'images', 'image2.jpg'), res, 'image/jpeg');
+            serveStaticFile(res, '/images/image2.jpg', 'image/jpeg');
             break;
         case '/image3.jpg':
-            serveStaticFile(path.join(__dirname, 'public', 'images', 'image3.jpg'), res, 'image/jpeg');
+            serveStaticFile(res, '/images/image3.jpg', 'image/jpeg');
             break;
         case '/image4.jpg':
-            serveStaticFile(path.join(__dirname, 'public', 'images', 'image4.jpg'), res, 'image/jpeg');
+            serveStaticFile(res, '/images/image4.jpg', 'image/jpeg');
             break;
         case '/script.js':
-            serveStaticFile(path.join(__dirname, 'public', 'js', 'script.js'), res, 'text/javascript');
+            serveStaticFile(res, '/js/script.js', 'text/javascript');
             break;
         case '/galleryscript.js':
-            serveStaticFile(path.join(__dirname, 'public', 'js', 'galleryscript.js'), res, 'text/javascript');
+            serveStaticFile(res, '/js/galleryscript.js', 'text/javascript');
             break;
         case '/pricingscript.js':
-            serveStaticFile(path.join(__dirname, 'public', 'js', 'pricingscript.js'), res, 'text/javascript');
+            serveStaticFile(res, '/js/pricingscript.js', 'text/javascript');
             break;
         case '/newpricingscript.js':
-            serveStaticFile(path.join(__dirname, 'public', 'js', 'newpricingscript.js'), res, 'text/javascript');
+            serveStaticFile(res, '/js/newpricingscript.js', 'text/javascript');
             break;
         case '/jquery_ajax_loader.js':
-            serveStaticFile(path.join(__dirname, 'public', 'js', 'jquery_ajax_loader.js'), res, 'text/javascript');
+            serveStaticFile(res, '/js/jquery_ajax_loader.js', 'text/javascript');
             break;
         case '/jquery-3.7.1.min.js':
-            serveStaticFile(path.join(__dirname, 'public', 'js', 'jquery-3.7.1.min.js'), res, 'text/javascript');
+            serveStaticFile(res, '/js/jquery-3.7.1.min.js', 'text/javascript');
             break;   
-            default:
-                serveStaticFile(path.join(__dirname, 'public', '404.html'), res, 'text/html', 404);
-                break;
+        default:
+            serveStaticFile(res, '/404.html', 'text/html', 404);
+            break;
     }
-            
+    
 });
 
 server.listen(port, () => {
