@@ -3,10 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 const port = 1337;
-const publicPath = 'C:\\Users\\guill\\Documents\\web_projects372\\myNodeWebsite\\public';
 
 function serveStaticFile(res, filePath, contentType, responseCode = 200) {
-    const file = path.join(publicPath, filePath);
+    const file = path.join(__dirname, filePath);
 
     fs.readFile(file, (err, data) => {
         if (err) {
@@ -80,3 +79,4 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });
+
