@@ -36,37 +36,37 @@ const server = http.createServer((req, res) => {
         case '/pricing':
             serveStaticFile(res, '/public/pricing.html', 'text/html');
             break;    
-        case '/stylesheet.css':
+        case '/css/stylesheet.css':
             serveStaticFile(res, '/public/css/stylesheet.css', 'text/css');
             break;
-        case '/image1.webp':
+        case '/images/image1.webp':
             serveStaticFile(res, '/public/images/image1.webp', 'image/webp');
             break;
-        case '/image2.jpg':
+        case '/images/image2.jpg':
             serveStaticFile(res, '/public/images/image2.jpg', 'image/jpeg');
             break;
-        case '/image3.jpg':
+        case '/images/image3.jpg':
             serveStaticFile(res, '/public/images/image3.jpg', 'image/jpeg');
             break;
-        case '/image4.jpg':
+        case '/images/image4.jpg':
             serveStaticFile(res, '/public/images/image4.jpg', 'image/jpeg');
             break;
-        case '/script.js':
+        case '/js/script.js':
             serveStaticFile(res, '/public/js/script.js', 'text/javascript');
             break;
-        case '/galleryscript.js':
+        case '/js/galleryscript.js':
             serveStaticFile(res, '/public/js/galleryscript.js', 'text/javascript');
             break;
-        case '/pricingscript.js':
+        case '/js/pricingscript.js':
             serveStaticFile(res, '/public/js/pricingscript.js', 'text/javascript');
             break;
         case '/newpricingscript.js':
             serveStaticFile(res, '/public/js/newpricingscript.js', 'text/javascript');
             break;
-        case '/jquery_ajax_loader.js':
+        case '/js/jquery_ajax_loader.js':
             serveStaticFile(res, '/public/js/jquery_ajax_loader.js', 'text/javascript');
             break;
-        case '/jquery-3.7.1.min.js':
+        case '/js/jquery-3.7.1.min.js':
             serveStaticFile(res, '/public/js/jquery-3.7.1.min.js', 'text/javascript');
             break;   
         default:
